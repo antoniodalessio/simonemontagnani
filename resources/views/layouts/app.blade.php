@@ -19,6 +19,19 @@
             <button>
                 <span class="icon-hamburger"></span><span class="label">menu</span>
             </button>
+            <div class="menu__container">
+                <button class="close-icon">
+                    <span class="icon-chiudi"></span>
+                </button>
+                <nav>
+                    <ul>
+                        <li><a href="#">Progetti</a></li>
+                        <li><a href="#">Chi sono</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contatti</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
         <div>
             <span class="icon-logo logo"></span>

@@ -1,4 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);@charset "UTF-8";
+
 @font-face {
   font-family: 'icomoon';
   src: url("icomoon.eot?spznif");
@@ -33,6 +34,86 @@
   content: "\e900";
 }
 
+/* RESET */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+  font-family: 'OpenSansCondensedLight', sans-serif;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* CLEARFIX */
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+/* start commented backslash hack \*/
+* html .clearfix {
+  height: 1%;
+}
+
+.clearfix {
+  display: block;
+}
+
+/* close commented backslash hack */
 body {
   background-color: #cbcdcd;
   color: white;
@@ -46,6 +127,7 @@ body {
   -webkit-transform-origin: 3% 0%;
           transform-origin: 3% 0%;
   top: 50%;
+  z-index: 9;
 }
 
 .right-text {
@@ -61,6 +143,7 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-top: 10px;
 }
 
 header .menu {
@@ -88,7 +171,72 @@ header .menu .label {
   margin-left: 10px;
 }
 
+header .menu .menu__container {
+  position: fixed;
+  top: 0;
+  left: -100vw;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  transition: left 0.5s;
+}
+
+header .menu .menu__container .close-icon {
+  position: absolute;
+  left: 12px;
+  top: 10px;
+}
+
+header .menu .menu__container .close-icon .icon-chiudi  {
+  font-size: 20px;
+}
+
+header .menu .menu__container nav a {
+  color: #fff;
+  font-size: 10vw;
+  font-weight: bold;
+}
+
+header .menu .menu__container.open {
+  left: 0;
+}
+
 header .logo {
   margin-right: 12px;
   font-size: 40px;
+}
+
+.main-gallery {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-gallery__slide {
+  position: relative;
+}
+
+.main-gallery__slide .logo {
+  font-size: 100px;
+  position: absolute;
+  bottom: 0;
+  left: -50px;
+}
+
+.main-gallery__slide .text {
+  position: absolute;
+  top: 43%;
+  right: -50%;
+}
+
+.main-gallery__slide .text h1, .main-gallery__slide .text h2 {
+  font-size: 30px;
 }

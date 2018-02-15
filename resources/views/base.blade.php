@@ -6,15 +6,17 @@
 @endsection
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    {{$page->content}}
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- {{$page->content}} -->
+<div class="page {{$page->title}}">
+	<div class="main-gallery">
+		<div class="main-gallery__slide">
+			<span class="icon-logo logo"></span>
+			<img src="http://via.placeholder.com/350x350/000" />
+			<div class="text">
+				<h1>Simone Montagnani</h1>
+				<h2>Graphic Designer</h2>
+			</div>
+		</div>
+	</div>
 </div>
 @endsection

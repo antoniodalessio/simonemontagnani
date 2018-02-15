@@ -39,6 +39,7 @@
 }
 
 // Variables
+@import "reset";
 @import "variables";
 
 // Bootstrap
@@ -57,6 +58,7 @@ $marigin-header: 12px;
   transform: rotate(-90deg);
   transform-origin: 3% 0%;
   top: 50%;
+  z-index: 9;
 }
 
 .right-text {
@@ -67,6 +69,7 @@ $marigin-header: 12px;
 header {
 	display: flex;
 	justify-content: space-between;
+  margin-top: 10px;
 	.menu {
     margin-left: $marigin-header;
 		button {
@@ -83,9 +86,62 @@ header {
       font-size: 16px;
       margin-left: 10px;
     }
+    .menu__container {
+      position: fixed;
+      top: 0;
+      left: -100vw;
+      background-color: rgba(0, 0, 0, 0.8);
+      width: 100%;
+      height: 100vh;
+      z-index: 10;
+      transition: left 0.5s;
+      .close-icon {
+        position: absolute;
+        left: $marigin-header;
+        top: 10px;
+        .icon-chiudi {
+          font-size: 20px;
+        }
+      }
+      nav {
+        a {
+          color: #fff;
+          font-size: 10vw;
+          font-weight: bold;
+        }
+      }
+      &.open {
+        left: 0;
+      }
+    }
 	}
 	.logo {
     margin-right: $marigin-header;
 		font-size: 40px;
 	}
+}
+
+.main-gallery {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__slide {
+    position: relative;
+    .logo {
+      font-size: 100px;
+      position: absolute;
+      bottom: 0;
+      left: -50px;
+    }
+    .text {
+      position: absolute;
+      top: 43%;
+      right: -50%;
+      h1, h2 {
+        font-size: 30px;
+
+      }
+    }
+  }
 }
