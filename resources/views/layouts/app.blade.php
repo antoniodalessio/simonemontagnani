@@ -14,47 +14,54 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="menu">
-            <button>
-                <span class="icon-hamburger"></span><span class="label">menu</span>
+  <header>
+    <div class="menu">
+        <button>
+            <span class="icon-hamburger"></span>
+            <span class="label">menu</span>
+        </button>
+        <div class="menu__container">
+            <button class="close-icon">
+                <span class="icon-chiudi"></span>
             </button>
-            <div class="menu__container">
-                <button class="close-icon">
-                    <span class="icon-chiudi"></span>
-                </button>
-                <nav>
-                    <ul>
-                        <li><a href="#">Progetti</a></li>
-                        <li><a href="#">Chi sono</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contatti</a></li>
-                    </ul>
-                </nav>
-            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{URL::to('/portfolio')}}">Progetti</a>
+                      <ul class="submenu">
+                        <li><a href="">Lavori</a></li>
+                        <li><a href="">Personali</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="{{URL::to('/about-us')}}">Chi sono</a></li>
+                    <li><a href="{{URL::to('/contatti')}}">Contatti</a></li>
+                </ul>
+            </nav>
         </div>
-        <div>
-            <span class="icon-logo logo"></span>
-        </div>
-    </header>
-    
-    <div class="left-text">
-        Branding / Graphic design
     </div>
-
-    <div class="right-text">
-        Illustrazione / Packaging
+    <div>
+        <a href="{{URL::to('/')}}">
+          <span class="icon-logo logo"></span>
+        </a>
     </div>
+  </header>
+  
+  <div class="left-text">
+      Branding / Graphic design
+  </div>
 
-    <div id="app">
-        @yield('content')
-    </div>
+  <div class="right-text">
+      Illustrazione / Packaging
+  </div>
 
-    <footer>
-        
-    </footer>
+  <div id="app">
+      @yield('content')
+  </div>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+  <footer>
+      
+  </footer>
+
+  <!-- Scripts -->
+  <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

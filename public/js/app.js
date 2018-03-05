@@ -63,19 +63,62 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 41);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
-/******/ ({
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
 
-/***/ 10:
+
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
+
+try {
+	window.$ = window.jQuery = __webpack_require__(2);
+} catch (e) {}
+
+//window.Vue = require('vue');
+
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
+
+// Vue.component('example', require('./components/Example.vue'));
+
+// const app = new Vue({
+//     el: '#app'
+// });
+
+
+$(document).ready(function () {
+
+	var $btnMenu = $(".menu button");
+	var $menu = $(".menu .menu__container");
+	var $closeMenuBtn = $(".close-icon");
+
+	$btnMenu.on("click", function () {
+		$menu.toggleClass("open");
+	});
+
+	$closeMenuBtn.on("click", function () {
+		$menu.removeClass("open");
+	});
+});
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-
-/***/ 32:
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10446,60 +10489,12 @@ return jQuery;
 
 
 /***/ }),
-
-/***/ 41:
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(9);
-module.exports = __webpack_require__(10);
+__webpack_require__(0);
+module.exports = __webpack_require__(1);
 
-
-/***/ }),
-
-/***/ 9:
-/***/ (function(module, exports, __webpack_require__) {
-
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
-try {
-	window.$ = window.jQuery = __webpack_require__(32);
-} catch (e) {}
-
-//window.Vue = require('vue');
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-// Vue.component('example', require('./components/Example.vue'));
-
-// const app = new Vue({
-//     el: '#app'
-// });
-
-
-$(document).ready(function () {
-
-	var $btnMenu = $(".menu button");
-	var $menu = $(".menu .menu__container");
-	var $closeMenuBtn = $(".close-icon");
-
-	$btnMenu.on("click", function () {
-		$menu.toggleClass("open");
-	});
-
-	$closeMenuBtn.on("click", function () {
-		$menu.removeClass("open");
-	});
-});
 
 /***/ })
-
-/******/ });
+/******/ ]);

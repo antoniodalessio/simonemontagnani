@@ -144,6 +144,9 @@ header {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-top: 10px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
 }
 
 header .menu {
@@ -151,6 +154,7 @@ header .menu {
 }
 
 header .menu button {
+  padding: 0;
   background-color: transparent;
   border: none;
   color: white;
@@ -192,10 +196,19 @@ header .menu .menu__container .close-icon .icon-chiudi  {
   font-size: 20px;
 }
 
+header .menu .menu__container nav {
+  margin-top: 10vh;
+  margin-left: 12px;
+}
+
 header .menu .menu__container nav a {
   color: #fff;
-  font-size: 10vw;
+  font-size: 8vw;
   font-weight: bold;
+}
+
+header .menu .menu__container nav .submenu a {
+  font-size: 5vw;
 }
 
 header .menu .menu__container.open {
@@ -205,6 +218,7 @@ header .menu .menu__container.open {
 header .logo {
   margin-right: 12px;
   font-size: 40px;
+  color: #fff;
 }
 
 .main-gallery {
@@ -239,4 +253,83 @@ header .logo {
 
 .main-gallery__slide .text h1, .main-gallery__slide .text h2 {
   font-size: 30px;
+}
+
+/* CHI SONO */
+.container-viewport-centered {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container-viewport-centered__wrapper {
+  width: 50vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container-viewport-centered__wrapper--scroll {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container-viewport-centered__wrapper__left {
+  margin-right: 50px;
+}
+
+.container-viewport-centered__wrapper__left img {
+  width: 200px;
+}
+
+.container-viewport-centered__wrapper__right {
+  color: #000;
+}
+
+.container-viewport-centered--scroll {
+  height: auto;
+  padding-top: 15vh;
+}
+
+.container-viewport-centered .big-text {
+  font-size: 40px;
+  color: #000;
+}
+
+/* PORTFOLIO */
+.portfolio-template__double {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  margin-bottom: calc(50vw - 46vw);
+}
+
+.portfolio-template__double__item {
+  width: 23vw;
+}
+
+.portfolio-template__double img {
+  width: 100%;
+}
+
+.portfolio-template__single {
+  width: 100%;
+}
+
+.portfolio-template__single img {
+  width: 100%;
 }

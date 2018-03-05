@@ -25,20 +25,20 @@ if ($_ENV['LOCALIZATION'] == "true") {
 
 Auth::routes();
 
-Route::get('/admin', function() {
-	return redirect('/admin/dashboard');
-});
+// Route::get('/admin', function() {
+// 	return redirect('/admin/dashboard');
+// });
 
-Route::group([
-	'namespace' => 'Admin', 
-	'prefix' => 'admin'
-	], 
-	function() {
-		Route::get('/dashboard','AdminController@index');
-		Route::get('/users','UsersController@index');
-		Route::get('/pages','PagesController@index');
-	}
-);
+// Route::group([
+// 	'namespace' => 'Admin', 
+// 	'prefix' => 'admin'
+// 	], 
+// 	function() {
+// 		Route::get('/dashboard','AdminController@index');
+// 		Route::get('/users','UsersController@index');
+// 		Route::get('/pages','PagesController@index');
+// 	}
+// );
 
 if ($_ENV['LOCALIZATION'] == "true") {
 	Route::get('{lang}/{pageName}', [ 
