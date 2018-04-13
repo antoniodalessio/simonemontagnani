@@ -7,7 +7,10 @@
 
 try {
     window.$ = window.jQuery = require('jquery');
+    var slick = require('slick-carousel');
 } catch (e) {}
+
+
 
 //window.Vue = require('vue');
 
@@ -38,6 +41,11 @@ $(document).ready( () => {
 		$menu.removeClass("open");
 	});
 
-
+	$('.slider').slick({
+		slidesToShow: 1,
+	  	slidesToScroll: 1,
+	  	autoplay: true,
+	  	autoplaySpeed: 2000,
+	});
 
 });

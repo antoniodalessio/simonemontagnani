@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Page;
 use App\PageContent;
+use App\Settings;
+use App\PagesImages;
 
 class PageController extends Controller
 {
@@ -34,15 +36,34 @@ class PageController extends Controller
     }
 
     public function getPage($lang, $pageName) {
-        
-        $content = PageContent::where(['slug' => $pageName, 'lang' => $lang])->first();
 
-        if (!isset($content)) {
+        $page = 
+            Page::where(["active" => "1"])
+                ->whereHas("contents", function($q) use ($pageName, $lang){
+                    $q
+                    ->where(['slug' => $pageName])
+                    ->whereHas('langs', function($q) use ($lang) {
+                        $q->where('name', $lang);
+                    });
+                })->get()->first();
+
+
+        if (!isset($page)) {
             return abort(404);
         }else{
-            $template = $content->page->template;
+            $template = $page->template()->first()->template;
         }
 
-        return view($template)->with('page', $content);
+        $settings = Settings::find(1);
+
+        $images = $page->images()->get()->sortBy('ord');
+        $page = $page->contents()->first();
+        $page->settings = $settings;
+
+
+        $page->images = $images;
+
+
+        return view($template)->with('page', $page);
     }
 }

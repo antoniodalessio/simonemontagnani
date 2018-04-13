@@ -10,6 +10,13 @@ Route::group([
     'middleware'    => config('admin.route.middleware'),
 ], function (Router $router) {
 
-    $router->get('/', 'HomeController@index');
+    $router->get('/', 'DashboardController@index');
+
+    Route::group([], function ($router) {
+        $router->resource('/page', 'PageController');
+        $router->resource('/templates', 'TemplatesController');
+        $router->resource('/langs', 'LangsController');
+        $router->resource('/settings', 'SettingsController');
+    });
 
 });

@@ -11,8 +11,8 @@
 	<div class="container-viewport-centered">
 		<div class="container-viewport-centered__wrapper">
 			<div class="big-text">
-				info@si.....<br />
-				Instagram: simonemontagnani Office: Via Campo d’Arrigo<br>40r, 50131 Firenze, Italia
+				{!!$page->content !!}
+				{!! $page->settings->company_info !!}
 			</div>
 		</div>
 	</div>

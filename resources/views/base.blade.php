@@ -6,12 +6,15 @@
 @endsection
 
 @section('content')
-<!-- {{$page->content}} -->
 <div class="page {{$page->title}}">
 	<div class="main-gallery">
 		<div class="main-gallery__slide">
 			<span class="icon-logo logo"></span>
-			<img src="http://via.placeholder.com/350x350/000" />
+			<div class="slider">
+			@foreach ($page->images as $images)
+			    <div><img src="{{$images->img}}" /></div>
+			@endforeach
+			</div>
 			<div class="text">
 				<h1>Simone Montagnani</h1>
 				<h2>Graphic Designer</h2>

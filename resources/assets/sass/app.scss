@@ -1,6 +1,6 @@
 
 // Fonts
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,800);
 
 @font-face {
   font-family: 'icomoon';
@@ -42,13 +42,23 @@
 @import "reset";
 @import "variables";
 
-// Bootstrap
-//@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+@import "node_modules/slick-carousel/slick/slick.scss";
 
 body {
 	background-color: $body-bg;
 	color: white;
 	font-family: 'Open Sans', sans-serif;
+}
+
+hr {
+  background-color: black;
+  height: 1px;
+  border: 0;
+}
+
+strong {
+  font-weight: 700;
 }
 
 $marigin-header: 12px;
@@ -141,16 +151,30 @@ header {
   align-items: center;
   &__slide {
     position: relative;
+    width: 350px;
+    .slider {
+      //width: 350px;
+      //height: 350px;
+      //overflow: hidden;
+    }
+    .slick-arrow {
+      display: none !important;
+    }
+    img {
+      width: 100%;
+    }
     .logo {
       font-size: 100px;
       position: absolute;
-      bottom: 0;
-      left: -50px;
+      bottom: -26px;
+      left: -65px;
+      z-index: 10;
     }
     .text {
       position: absolute;
       top: 43%;
       right: -50%;
+      font-weight: 700;
       h1, h2 {
         font-size: 30px;
 
@@ -176,12 +200,30 @@ header {
     }
     &__left {
       margin-right: 50px;
+      position: relative;
+      .logo {
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        font-size: 60px;
+        color: #fff;
+      }
       img {
         width: 200px;
+        margin-bottom: 20px;
+      }
+      .text {
+        color: #000;
+        font-size: 12px;
+        font-weight: 700;
       }
     }
     &__right {
       color: #000;
+      hr {
+        margin-top: 20px;
+        margin-bottom: 40px;
+      }
     }
   }
   &--scroll {
