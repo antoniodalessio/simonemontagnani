@@ -13,7 +13,9 @@ Route::group([
     $router->get('/', 'DashboardController@index');
 
     Route::group([], function ($router) {
+        $router->resource('/menu', 'MenuController');
         $router->resource('/page', 'PageController');
+        $router->resource('/projects', 'ProjectsController');
         $router->resource('/templates', 'TemplatesController');
         $router->resource('/langs', 'LangsController');
         $router->resource('/settings', 'SettingsController');

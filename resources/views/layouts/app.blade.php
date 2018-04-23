@@ -25,17 +25,35 @@
                 <span class="icon-chiudi"></span>
             </button>
             <nav>
+              <ul>
+              @foreach ($page->menu as $item)
+                @if ($item->parent_id == 0)
+                <li>
+                  <a href="{{$item->uri}}">{{$item->title}}</a>
+                  @if (count($item->children) > 0)
+                    <ul class="submenu">
+                    @foreach ($item->children as $subitem)
+                      <li><a href="{{$subitem->uri}}">{{$subitem->title}}</a></li>
+                    @endforeach
+                    </ul>
+                  @endif
+                </li>
+                @endif
+              @endforeach
+              </ul>
+            </nav>
+            <!-- <nav>
                 <ul>
-                    <li><a href="{{URL::to('/portfolio')}}">Progetti</a>
+                    <li><a href="#">Progetti</a>
                       <ul class="submenu">
-                        <li><a href="">Lavori</a></li>
-                        <li><a href="">Personali</a></li>
+                        <li><a href="{{URL::to('/lavori')}}">Lavori</a></li>
+                        <li><a href="{{URL::to('/lavori-personali')}}">Personali</a></li>
                       </ul>
                     </li>
                     <li><a href="{{URL::to('/about-us')}}">Chi sono</a></li>
                     <li><a href="{{URL::to('/contatti')}}">Contatti</a></li>
                 </ul>
-            </nav>
+            </nav> -->
         </div>
     </div>
     <div>

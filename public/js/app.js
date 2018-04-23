@@ -10488,6 +10488,22 @@ $(document).ready(function () {
 		autoplay: true,
 		autoplaySpeed: 2000
 	});
+
+	$('.menu__container nav > ul li').each(function () {
+		if ($(this).find('.submenu').length > 0) {
+			var $submenu = $(this).find('.submenu');
+
+			$(this).find('> a').on('click', function (e) {
+				e.preventDefault();
+				var open = $submenu.hasClass('open');
+				if (open) {
+					$submenu.fadeOut().removeClass('open');
+				} else {
+					$submenu.fadeIn().addClass('open');
+				}
+			});
+		}
+	});
 });
 
 /***/ }),

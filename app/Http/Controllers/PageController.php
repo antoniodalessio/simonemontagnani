@@ -6,6 +6,7 @@ use App\Page;
 use App\PageContent;
 use App\Settings;
 use App\PagesImages;
+use App\Menu;
 
 class PageController extends Controller
 {
@@ -63,7 +64,9 @@ class PageController extends Controller
 
         $page->images = $images;
 
+        $page->menu = Menu::all();
 
         return view($template)->with('page', $page);
     }
+
 }

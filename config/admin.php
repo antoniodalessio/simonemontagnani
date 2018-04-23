@@ -10,12 +10,12 @@ return [
     /*
      * Logo in admin panel header.
      */
-    'logo' => '<b>Laravel</b> admin',
+    'logo' => '<b>AD</b> admin',
 
     /*
      * Mini-logo in admin panel header.
      */
-    'logo-mini' => '<b>La</b>',
+    'logo-mini' => '<b>AD</b>',
 
     /*
      * Route configuration.

@@ -113,8 +113,8 @@ header {
         position: absolute;
         left: $marigin-header;
         top: 10px;
-        .icon-chiudi {
-          font-size: 20px;
+        .icon-chiudi {
+          font-size: 30px;
         }
       }
       nav {
@@ -126,6 +126,7 @@ header {
           font-weight: bold;
         }
         .submenu {
+          display: none;
           a {
             font-size: 5vw;
           }
@@ -239,6 +240,9 @@ header {
 
 
 /* PORTFOLIO */
+.portfolio-description {
+  margin-bottom: 20px;
+}
 .portfolio-template {
   &__double {
     display: flex;

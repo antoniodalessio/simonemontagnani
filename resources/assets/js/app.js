@@ -48,4 +48,20 @@ $(document).ready( () => {
 	  	autoplaySpeed: 2000,
 	});
 
+	$('.menu__container nav > ul li').each(function() {
+		if ($(this).find('.submenu').length > 0) {
+			let $submenu = $(this).find('.submenu');
+			
+			$(this).find('> a').on('click', function(e) {
+				e.preventDefault();
+				let open = $submenu.hasClass('open');
+				if (open) {
+					$submenu.fadeOut().removeClass('open')
+				}else{
+					$submenu.fadeIn().addClass('open');
+				}
+			});
+		}
+	});
+
 });
