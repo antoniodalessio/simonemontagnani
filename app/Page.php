@@ -12,6 +12,7 @@ class Page extends Model
      *
      * @var array
      */
+
     protected $fillable = [
         'name', 'template'
     ];
@@ -20,7 +21,7 @@ class Page extends Model
 
     public function contents()
     {
-        return $this->hasMany('App\PageContent');
+        return $this->hasMany('App\PageContent', 'page_id');
     }
 
     public function template()
@@ -30,6 +31,11 @@ class Page extends Model
 
     public function images()
     {
-        return $this->hasMany('App\PagesImages');
+        return $this->hasMany('App\PagesImages', 'page_id');
+    }
+
+    public function imagesections()
+    {
+        return $this->hasMany('App\PageSections', 'page_id');
     }
 }

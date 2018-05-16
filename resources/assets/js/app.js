@@ -41,13 +41,14 @@ $(document).ready( () => {
 		$menu.removeClass("open");
 	});
 
-	$('.slider').slick({
-		slidesToShow: 1,
-	  	slidesToScroll: 1,
-	  	autoplay: true,
-	  	autoplaySpeed: 2000,
-	});
+	// $('.slider').slick({
+	// 	slidesToShow: 1,
+	//   	slidesToScroll: 1,
+	//   	autoplay: true,
+	//   	autoplaySpeed: 2000,
+	// });
 
+	//add click event to menu items
 	$('.menu__container nav > ul li').each(function() {
 		if ($(this).find('.submenu').length > 0) {
 			let $submenu = $(this).find('.submenu');
@@ -62,6 +63,24 @@ $(document).ready( () => {
 				}
 			});
 		}
+	});
+
+
+	//open submenu when active
+	$('.menu__container nav .submenu li').each(function() {
+		if ($(this).hasClass('active')){
+			var $submenu = $(this).closest('.submenu');
+			$submenu.show().addClass('open');
+		}
+	});
+
+
+	$('.slider').mouseenter(function() {
+		$($(this).find('img')[0]).hide();
+	});
+
+	$('.slider').mouseleave(function() {
+		$($(this).find('img')[0]).show();
 	});
 
 });

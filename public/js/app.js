@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -10450,7 +10450,7 @@ return jQuery;
 
 try {
 	window.$ = window.jQuery = __webpack_require__(0);
-	var slick = __webpack_require__(3);
+	var slick = __webpack_require__(4);
 } catch (e) {}
 
 //window.Vue = require('vue');
@@ -10482,13 +10482,14 @@ $(document).ready(function () {
 		$menu.removeClass("open");
 	});
 
-	$('.slider').slick({
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		autoplay: true,
-		autoplaySpeed: 2000
-	});
+	// $('.slider').slick({
+	// 	slidesToShow: 1,
+	//   	slidesToScroll: 1,
+	//   	autoplay: true,
+	//   	autoplaySpeed: 2000,
+	// });
 
+	//add click event to menu items
 	$('.menu__container nav > ul li').each(function () {
 		if ($(this).find('.submenu').length > 0) {
 			var $submenu = $(this).find('.submenu');
@@ -10504,6 +10505,22 @@ $(document).ready(function () {
 			});
 		}
 	});
+
+	//open submenu when active
+	$('.menu__container nav .submenu li').each(function () {
+		if ($(this).hasClass('active')) {
+			var $submenu = $(this).closest('.submenu');
+			$submenu.show().addClass('open');
+		}
+	});
+
+	$('.slider').mouseenter(function () {
+		$($(this).find('img')[0]).hide();
+	});
+
+	$('.slider').mouseleave(function () {
+		$($(this).find('img')[0]).show();
+	});
 });
 
 /***/ }),
@@ -10514,6 +10531,12 @@ $(document).ready(function () {
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -13533,11 +13556,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
-module.exports = __webpack_require__(2);
+__webpack_require__(2);
+module.exports = __webpack_require__(3);
 
 
 /***/ })

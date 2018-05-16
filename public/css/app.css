@@ -240,8 +240,12 @@ strong {
   z-index: 9;
 }
 
+.left-text {
+  left: 30px;
+}
+
 .right-text {
-  right: 0;
+  right: 30px;
   -webkit-transform-origin: 80% 0%;
           transform-origin: 80% 0%;
 }
@@ -255,12 +259,10 @@ header {
           justify-content: space-between;
   margin-top: 10px;
   position: fixed;
-  width: 100%;
   z-index: 10;
-}
-
-header .menu {
-  margin-left: 12px;
+  width: calc(100% - (30px * 2));
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
 header .menu button {
@@ -274,6 +276,10 @@ header .menu button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+header .menu button span {
+  display: inline-block;
 }
 
 header .menu .icon-hamburger {
@@ -298,7 +304,6 @@ header .menu .menu__container {
 
 header .menu .menu__container .close-icon {
   position: absolute;
-  left: 12px;
   top: 10px;
 }
 
@@ -308,17 +313,22 @@ header .menu .menu__container .close-icon .icon-chiudi {
 
 header .menu .menu__container nav {
   margin-top: 10vh;
-  margin-left: 12px;
 }
 
 header .menu .menu__container nav a {
   color: #fff;
   font-size: 8vw;
   font-weight: bold;
+  text-transform: capitalize;
+}
+
+header .menu .menu__container nav li.active > a {
+  color: #cc0000;
 }
 
 header .menu .menu__container nav .submenu {
   display: none;
+  padding: 10px 0;
 }
 
 header .menu .menu__container nav .submenu a {
@@ -330,7 +340,6 @@ header .menu .menu__container.open {
 }
 
 header .logo {
-  margin-right: 12px;
   font-size: 40px;
   color: #fff;
 }
@@ -351,6 +360,12 @@ header .logo {
 .main-gallery__slide {
   position: relative;
   width: 350px;
+}
+
+.main-gallery__slide .slider {
+  width: 350px;
+  height: 350px;
+  overflow: hidden;
 }
 
 .main-gallery__slide .slick-arrow {
@@ -380,7 +395,6 @@ header .logo {
   font-size: 30px;
 }
 
-/* CHI SONO */
 .container-viewport-centered {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -396,7 +410,7 @@ header .logo {
 }
 
 .container-viewport-centered__wrapper {
-  width: 50vw;
+  width: 70vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -452,7 +466,54 @@ header .logo {
   color: #000;
 }
 
+@media only screen and (max-width: 1024px) {
+  header {
+    position: relative;
+  }
+  .left-text, .right-text {
+    display: none;
+  }
+  .container-viewport-centered {
+    height: auto;
+  }
+  .container-viewport-centered__wrapper {
+    width: 90%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .container-viewport-centered--scroll {
+    padding-top: 0;
+  }
+  .container-viewport-centered .big-text {
+    width: 100%;
+    font-size: 20px;
+  }
+  .main-gallery {
+    padding: 0 10px;
+  }
+  .main-gallery .text {
+    right: 0;
+    left: 0;
+    position: relative;
+  }
+  .main-gallery .logo {
+    display: none;
+  }
+}
+
 /* PORTFOLIO */
+.project h1 {
+  font-weight: bold;
+  font-size: 2em;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+
+.project__content {
+  line-height: 1.2em;
+  margin-bottom: 10px;
+}
+
 .portfolio-description {
   margin-bottom: 20px;
 }
@@ -469,7 +530,12 @@ header .logo {
 }
 
 .portfolio-template__double__item {
-  width: 23vw;
+  width: 49%;
+  margin-right: 10px;
+}
+
+.portfolio-template__double__item:nth-child(2n+0) {
+  margin-right: 0;
 }
 
 .portfolio-template__double img {
@@ -477,9 +543,63 @@ header .logo {
 }
 
 .portfolio-template__single {
+  margin-bottom: calc(50vw - 46vw);
   width: 100%;
 }
 
 .portfolio-template__single img {
   width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .portfolio-template__double {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .portfolio-template__double__item {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: calc(50vw - 46vw);
+  }
+}
+
+.gallery h1 {
+  font-weight: bold;
+  font-size: 2em;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+
+.gallery__content {
+  line-height: 1.2em;
+  margin-bottom: 10px;
+}
+
+.gallery-items__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.gallery-items__item {
+  width: 49%;
+  margin-right: 2%;
+  margin-bottom: 10px;
+}
+
+.gallery-items__item img {
+  width: 100%;
+}
+
+.gallery-items__item:nth-child(2n+0) {
+  margin-right: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .gallery-items__item {
+    width: 100%;
+    margin-right: 0;
+  }
 }

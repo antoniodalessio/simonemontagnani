@@ -2,25 +2,29 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Page;
 
-class Projects extends Model
+class Projects extends Page
 {
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+
+    protected $table = 'pages';
+
     protected $fillable = [
-        'name',
-        'type',
-        
+        'name', 'template'
     ];
 
-    protected $guarded = array();
+    public function type() {
+        return $this->hasOne('App\ProjectRelType', 'page_id');
+    }
 
-    // public function images()
-    // {
-    //     return $this->hasMany('App\PagesImages');
-    // }
+    public function imagesections()
+    {
+        return $this->hasMany('App\PageSections', 'page_id');
+    }
+
 }

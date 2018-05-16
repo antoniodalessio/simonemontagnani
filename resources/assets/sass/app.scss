@@ -61,7 +61,7 @@ strong {
   font-weight: 700;
 }
 
-$marigin-header: 12px;
+$marigin-header: 30px;
 
 .left-text, .right-text {
   position: fixed;
@@ -71,79 +71,16 @@ $marigin-header: 12px;
   z-index: 9;
 }
 
+.left-text {
+  left: $marigin-header;
+}
+
 .right-text {
-  right: 0;
+  right: $marigin-header;
   transform-origin: 80% 0%;
 }
 
-header {
-	display: flex;
-	justify-content: space-between;
-  margin-top: 10px;
-  position: fixed;
-  width: 100%;
-  z-index: 10;
-	.menu {
-    margin-left: $marigin-header;
-		button {
-      padding: 0;
-			background-color: transparent;
-			border: none;
-			color: white;
-			display: flex;
-			align-items: center;
-		}
-    .icon-hamburger {
-      font-size: 30px;
-    }
-    .label {
-      font-size: 16px;
-      margin-left: 10px;
-    }
-    .menu__container {
-      position: fixed;
-      top: 0;
-      left: -100vw;
-      background-color: rgba(0, 0, 0, 0.8);
-      width: 100%;
-      height: 100vh;
-      z-index: 10;
-      transition: left 0.5s;
-      .close-icon {
-        position: absolute;
-        left: $marigin-header;
-        top: 10px;
-        .icon-chiudi {
-          font-size: 30px;
-        }
-      }
-      nav {
-        margin-top: 10vh;
-        margin-left: $marigin-header;
-        a {
-          color: #fff;
-          font-size: 8vw;
-          font-weight: bold;
-        }
-        .submenu {
-          display: none;
-          a {
-            font-size: 5vw;
-          }
-        }
-      }
-
-      &.open {
-        left: 0;
-      }
-    }
-	}
-	.logo {
-    margin-right: $marigin-header;
-		font-size: 40px;
-    color: #fff;
-	}
-}
+@import "header";
 
 .main-gallery {
   height: 100vh;
@@ -154,9 +91,9 @@ header {
     position: relative;
     width: 350px;
     .slider {
-      //width: 350px;
-      //height: 350px;
-      //overflow: hidden;
+      width: 350px;
+      height: 350px;
+      overflow: hidden;
     }
     .slick-arrow {
       display: none !important;
@@ -185,8 +122,6 @@ header {
 }
 
 
-/* CHI SONO */
-
 .container-viewport-centered {
   display: flex;
   justify-content: center;
@@ -194,7 +129,7 @@ header {
   width: 100vw;
   height: 100vh;
   &__wrapper {
-    width: 50vw;
+    width: 70vw;
     display: flex;
     &--scroll {
       flex-direction: column;
@@ -239,27 +174,47 @@ header {
 }
 
 
-/* PORTFOLIO */
-.portfolio-description {
-  margin-bottom: 20px;
-}
-.portfolio-template {
-  &__double {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: calc(50vw - 46vw);
-    &__item {
-      width: 23vw;
+@media only screen and (max-width: 1024px) {
+  
+  header {
+    position: relative;
+  }
+
+  .left-text, .right-text {
+    display: none;
+  }
+  .container-viewport-centered {
+    height: auto;
+    &__wrapper {
+      width: 90%;
+      flex-wrap: wrap;
     }
-    img {
+
+    &--scroll {
+      padding-top: 0;
+    }
+
+    .big-text {
       width: 100%;
+      font-size: 20px;
     }
   }
-  &__single {
-    width: 100%;
-    img {
-      width: 100%;
+
+  .main-gallery {
+    padding: 0 10px;
+    .text {
+      right: 0;
+      left: 0;
+      position: relative;
+    }
+    .logo {
+      display: none;
     }
   }
 }
+
+@import "aboutus";
+@import "portfolio";
+@import "gallery";
+
+

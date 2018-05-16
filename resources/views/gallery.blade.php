@@ -6,20 +6,21 @@
 @endsection
 
 @section('content')
-<div class="page {{$page->template}}">
+<div class="page gallery">
 	<div class="container-viewport-centered container-viewport-centered--scroll">
 		<div class="container-viewport-centered__wrapper container-viewport-centered__wrapper--scroll">
 			<h1>{!! $page->title !!}</h1>
-			<div class="portfolio-description">{!! $page->content !!}</div>
-			<div class="portfolio-template__double">
-				<div class="portfolio-template__double__item">
-					<a href=""><img src="http://via.placeholder.com/350x350/000" />
+			<div class="gallery__content">{!! $page->content !!}</div>
+			<div class="gallery-items__container">
+				@foreach ($page->projects as $project)
+				<div class="gallery-items__item">
+					<a href="{{$project->contents[0]->slug}}">
+						<img src="{{$project->images->all()[0]->img}}" />
 					</a>
 				</div>
-				<div class="portfolio-template__double__item">
-					<a href=""><img src="http://via.placeholder.com/350x400/000" /></a>
-				</div>
+				@endforeach
 			</div>
+			
 		</div>
 	</div>
 </div>

@@ -70,6 +70,8 @@ class PageController extends Controller
     {
         return Admin::grid(Page::class, function (Grid $grid) {
 
+            $grid->model()->where('type_id', '=', 1);
+
             $grid->id('ID')->sortable();
             $grid->name();
             $grid->column('template.name', 'Template');
@@ -103,32 +105,31 @@ class PageController extends Controller
             $form->switch("active")->states($states);
 
             $form->text('name')->rules('required');
-
+            $form->hidden('type_id')->value('1');
             $templates = Templates::all();
-            $temp = [];
-            foreach($templates as $value) {
-                $temp[$value->id] = $value->name;
-            }
-
             $langs = Langs::all();
             
 
-            $form->select('template_id', 'Template')->options($temp)->rules('required');
+            $form
+                ->select('template_id', 'Template')
+                ->options($templates->pluck('name', 'id'))
+                ->rules('required');
 
             $form->hasMany('contents', 'Lingue', function (Form\NestedForm $form) use ($langs){
-                $tempLang = [];
-                foreach($langs as $value) {
-                    $tempLang[$value->id] = $value->lang;
-                }
-                $form->select('langs_id', 'Lingua')->options($tempLang)->rules('required');
-                $form->text('slug');
+                
+                $form
+                    ->select('langs_id', 'Lingua')
+                    ->options($langs->pluck('lang', 'id'))
+                    ->rules('required');
+
+                $form->text('slug')->rules('required');
                 $form->text('title');
                 $form->text('subtitle');
                 $form->ckeditor('content');
                 $form->text('meta_title');
                 $form->text('meta_description');
                 $form->text('meta_keywords');
-            })->useTab();
+            })->rules('required')->useTab();
 
 
             $form->hasMany('images', 'Immagini', function (Form\NestedForm $form) {

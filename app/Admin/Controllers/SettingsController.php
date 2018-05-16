@@ -94,7 +94,7 @@ class SettingsController extends Controller
         return Admin::form(Settings::class, function (Form $form) use($id) {
 
             $form->text("site_name");
-            $form->text("url");
+            $form->url("url");
             $form->ckeditor("company_info");
 
             $temp = array(
@@ -107,7 +107,7 @@ class SettingsController extends Controller
             $form->select('environment', 'Ambiente')->options($temp);
 
             $form->switch("show_info");
-            $form->text("cdn");
+            $form->url("cdn");
             $form->text("analytics_id");
             $form->switch("cdn_enabled");
             $form->switch("html_min");

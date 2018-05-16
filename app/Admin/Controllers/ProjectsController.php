@@ -11,6 +11,10 @@ use Encore\Admin\Controllers\ModelForm;
 use Illuminate\Support\MessageBag;
 
 use App\Projects;
+use App\Templates;
+use App\Langs;
+use App\ProjectTypes;
+use App\ImagesTemplates;
 
 
 class ProjectsController extends Controller
@@ -25,7 +29,7 @@ class ProjectsController extends Controller
     public function index()
     {
         return Admin::content(function (Content $content) {
-            $content->header('Templates');
+            $content->header('Progetti');
             $content->description('');
             $content->body($this->grid()->render());
         });
@@ -69,9 +73,10 @@ class ProjectsController extends Controller
     {
         return Admin::grid(Projects::class, function (Grid $grid) {
 
+            $grid->model()->where('type_id', '=', 2);
+
             $grid->id('ID')->sortable();
             $grid->name();
-            $grid->type();
             $grid->column('active')->display(function($val) {
                 return $val == 1 ? "<span style='color: green'>attiva</span>" : "<span style='color: red;'>non attiva</span>";
             });
@@ -102,15 +107,62 @@ class ProjectsController extends Controller
             $form->switch("active")->states($states);
 
             $form->text('name')->rules('required');
+            $form->hidden('type_id')->value('2');
+            $templates = Templates::all();
 
-            $form->select('type')->options(['lavori' => 'lavori', 'personali' => 'personali']);
+            $langs = Langs::all();
+            $types = ProjectTypes::all();
+            
+            $form
+                ->select('type.type_id', 'type')
+                ->options($types->pluck('type', 'id'));
 
-            $form->image('cover');
+            $form
+                ->hidden('template_id', 'Template')
+                ->options($templates->pluck('name', 'id'))
+                ->rules('required')
+                ->default('2');
 
-            /*$form->hasMany('images', 'Immagini', function (Form\NestedForm $form) {
-                $form->image('img');
-                $form->text('ord');
-            });*/
+            $form->divide();
+
+            $form->hasMany('contents', 'Lingue', function (Form\NestedForm $form) use ($langs){
+                
+                $form
+                    ->select('langs_id', 'Lingua')
+                    ->options($langs->pluck('lang', 'id'))
+                    ->rules('required');
+
+                $form->text('slug')->rules('required');
+                $form->text('title');
+                $form->text('subtitle');
+                $form->ckeditor('content');
+                $form->text('meta_title');
+                $form->text('meta_description');
+                $form->text('meta_keywords');
+            })->useTab();
+
+
+            $form->hasMany('images', 'Copertine', function (Form\NestedForm $form) {
+                $form->image('img')->name(function ($file) {
+                    return $file->getClientOriginalName();
+                });
+                $form->number('ord');
+            });
+
+            $form->hasMany('imagesections', 'Immagini', function (Form\NestedForm $form) {
+                $form->number('ord');
+
+                $templates = ImagesTemplates::all();
+
+                $form
+                    ->select('type_id', 'type')
+                    ->options($templates->pluck('type', 'id'));
+
+                $form->image('img', 'immagine 1');
+                $form->image('img_2', 'immagine 2');
+
+            });
+
 
             
         });

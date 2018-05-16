@@ -10,12 +10,12 @@ return [
     /*
      * Logo in admin panel header.
      */
-    'logo' => '<b>AD</b> admin',
+    'logo' => '<img src="/images/logo.png" />',
 
     /*
      * Mini-logo in admin panel header.
      */
-    'logo-mini' => '<b>AD</b>',
+    'logo-mini' => '<img src="/images/logo.png" />',
 
     /*
      * Route configuration.
@@ -145,7 +145,7 @@ return [
     /*
      * Version displayed in footer.
      */
-    'version' => '1.5.x-dev',
+    'version' => '1.0.0',
 
     /*
      * Settings for extensions.
