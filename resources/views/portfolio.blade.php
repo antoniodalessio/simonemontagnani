@@ -10,8 +10,15 @@
 <div class="page project">
 	<div class="container-viewport-centered container-viewport-centered--scroll">
 		<div class="container-viewport-centered__wrapper container-viewport-centered__wrapper--scroll">
-			<h1>{!! $page->title !!}</h1>
-			<div class="project__content">{!! $page->content !!}</div>
+			<div class="project-header">
+				<div class="project-header__left">
+					<h1>{!! $page->title !!}</h1>
+					<h2>{!! $page->subtitle !!}</h2>
+				</div>
+				<div class="project-header__right">
+				<div class="project-header__content project__content">{!! $page->content !!}</div>
+				</div>
+			</div>
 			@foreach ($page->imagesections as $section)
 				@if ($section->type_id == 2)
 				<div class="portfolio-template__double">

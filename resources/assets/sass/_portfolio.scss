@@ -1,16 +1,7 @@
 /* PORTFOLIO */
 
 .project {
-  h1 {
-    font-weight: bold;
-    font-size: 2em;
-    text-transform: capitalize;
-    margin-bottom: 10px;
-  }
-  &__content {
-    line-height: 1.2em;
-    margin-bottom: 10px;
-  }
+  
 }
 
 .portfolio-description {
@@ -23,7 +14,6 @@
     width: 100%;
     margin-bottom: calc(50vw - 46vw);
     &__item {
-      //flex-grow: 1;
       width: 49%;
       margin-right: 10px;
       &:nth-child(2n+0) {
@@ -40,6 +30,35 @@
     img {
       width: 100%;
     }
+  }
+}
+
+
+.project-header {
+  display: flex;
+  h1 {
+    font-weight: bold;
+    font-size: 2em;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    color: black;
+  }
+  h2 {
+    font-size: 1em;
+    text-transform: capitalize;
+    color: black;
+  }
+  &__left {
+    width: 40%;
+  }
+  &__right {
+    width: 60%;
+  }
+  &__content {
+    width: 80%;
+    line-height: 1.2em;
+    margin-bottom: 10px;
+    font-size: 0.8em;
   }
 }
 

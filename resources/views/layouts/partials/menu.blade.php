@@ -7,7 +7,7 @@
       @foreach ($page->menu as $item)
         @if ($item->parent_id == 0)
         <li @if ($item->page_id == $page->page_id) class="active" @endif>
-          <a href="{{$item->uri}}">{{$item->title}}</a>
+          <a href="{{$item->page->contents[0]->slug}}">{{$item->title}}</a>
           @if (count($item->children) > 0)
             <ul class="submenu">
             @foreach ($item->children as $subitem)

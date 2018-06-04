@@ -28,14 +28,29 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-ancora_intera:before {
+  content: "\e903";
+}
+.icon-favicon:before {
+  content: "\e904";
+}
+.icon-behance:before {
+  content: "\e905";
+}
+.icon-instagram:before {
+  content: "\e906";
+}
+.icon-rosa:before {
+  content: "\e907";
+}
+.icon-logo:before {
+  content: "\e900";
+}
 .icon-chiudi:before {
   content: "\e901";
 }
 .icon-hamburger:before {
   content: "\e902";
-}
-.icon-logo:before {
-  content: "\e900";
 }
 
 // Variables
@@ -66,7 +81,7 @@ $marigin-header: 30px;
 .left-text, .right-text {
   position: fixed;
   transform: rotate(-90deg);
-  transform-origin: 3% 0%;
+  transform-origin: 0% 0%;
   top: 50%;
   z-index: 9;
 }
@@ -77,7 +92,8 @@ $marigin-header: 30px;
 
 .right-text {
   right: $marigin-header;
-  transform-origin: 80% 0%;
+  top: 50%;
+  transform-origin: 100% 100%;
 }
 
 @import "header";
@@ -87,37 +103,21 @@ $marigin-header: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  &__slide {
+  &__container {
+    width: 300px;
     position: relative;
-    width: 350px;
-    .slider {
-      width: 350px;
-      height: 350px;
-      overflow: hidden;
-    }
-    .slick-arrow {
-      display: none !important;
-    }
-    img {
-      width: 100%;
-    }
-    .logo {
-      font-size: 100px;
-      position: absolute;
-      bottom: -26px;
-      left: -65px;
-      z-index: 10;
-    }
-    .text {
-      position: absolute;
-      top: 43%;
-      right: -50%;
-      font-weight: 700;
-      h1, h2 {
-        font-size: 30px;
-
-      }
-    }
+  }
+  .icon-logo {
+    color: black;
+    font-size: 150px;
+  }
+  &__text {
+    position: absolute;
+    width: 100%;
+    left: 25%;
+    top: -23px;
+    font-size: 60px;
+    font-weight: bold;
   }
 }
 
@@ -167,8 +167,10 @@ $marigin-header: 30px;
     padding-top: 15vh;
   }
   .big-text {
-    font-size: 40px;
+    font-size: 34px;
     color: #000;
+    font-style: italic;
+    line-height: 50px;
   }
 
 }
@@ -195,13 +197,15 @@ $marigin-header: 30px;
     }
 
     .big-text {
-      width: 100%;
       font-size: 20px;
     }
   }
 
   .main-gallery {
     padding: 0 10px;
+    &__container {
+      width: 100vw;
+    }
     .text {
       right: 0;
       left: 0;
@@ -216,5 +220,6 @@ $marigin-header: 30px;
 @import "aboutus";
 @import "portfolio";
 @import "gallery";
+@import "contatti";
 
 

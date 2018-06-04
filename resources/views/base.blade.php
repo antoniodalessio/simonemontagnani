@@ -8,16 +8,11 @@
 @section('content')
 <div class="page {{$page->title}}">
 	<div class="main-gallery">
-		<div class="main-gallery__slide">
-			<span class="icon-logo logo"></span>
-			<div class="slider">
-			@foreach ($page->images as $images)
-			    <div><img src="{{$images->img}}" /></div>
-			@endforeach
-			</div>
-			<div class="text">
-				<h1>Simone Montagnani</h1>
-				<h2>Graphic Designer</h2>
+		<div class="main-gallery__container">
+			<span class="icon-logo"></span>
+			<div class="main-gallery__text">
+				<p>frist<br>studio_</p>
+				<p>firenze</p>
 			</div>
 		</div>
 	</div>

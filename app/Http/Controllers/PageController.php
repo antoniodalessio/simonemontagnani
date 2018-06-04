@@ -90,7 +90,8 @@ class PageController extends Controller
 
         $page->images = $images;
 
-        $page->menu = Menu::all();
+        $page->menu = Menu::orderBy('order')->get();
+
         $page->template = $template;
         $page->imagesections = $imagesections;
 
