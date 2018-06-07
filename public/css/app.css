@@ -519,6 +519,15 @@ header .logo:hover {
   line-height: 50px;
 }
 
+.text-animation {
+  height: 60px;
+  overflow: hidden;
+}
+
+.text-animation__container {
+  position: relative;
+}
+
 @media only screen and (max-width: 1024px) {
   header {
     position: relative;
@@ -550,6 +559,9 @@ header .logo:hover {
     right: 0;
     left: 0;
     position: relative;
+  }
+  .main-gallery__text {
+    width: auto;
   }
   .main-gallery .logo {
     display: none;

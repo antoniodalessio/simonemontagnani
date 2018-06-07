@@ -10514,13 +10514,19 @@ $(document).ready(function () {
 		}
 	});
 
-	$('.slider').mouseenter(function () {
-		$($(this).find('img')[0]).hide();
-	});
+	function animateText($textAnimationContainer, index, tot) {
+		$textAnimationContainer.delay(1000).animate({
+			top: -60 * index
+		}, 300, function () {
+			animateText($textAnimationContainer, (index + 1 + tot) % tot, tot);
+		});
+	}
 
-	$('.slider').mouseleave(function () {
-		$($(this).find('img')[0]).show();
-	});
+	var $textAnimationContainer = $('.text-animation__container');
+	var textCount = $textAnimationContainer.find('p').length;
+	var index = 0;
+
+	animateText($textAnimationContainer, index, textCount);
 });
 
 /***/ }),

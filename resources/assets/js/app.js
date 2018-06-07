@@ -74,13 +74,23 @@ $(document).ready( () => {
 		}
 	});
 
+	function animateText($textAnimationContainer, index, tot) {
+		$textAnimationContainer
+			.delay(1000)
+			.animate({
+				top: -60 * index
+			}, 300, function() {
+				animateText($textAnimationContainer, (index + 1 + tot) % tot, tot)
+			})
+			
+	}
 
-	$('.slider').mouseenter(function() {
-		$($(this).find('img')[0]).hide();
-	});
+	var $textAnimationContainer = $('.text-animation__container');
+	var textCount = $textAnimationContainer.find('p').length;
+	var index = 0;
 
-	$('.slider').mouseleave(function() {
-		$($(this).find('img')[0]).show();
-	});
+	
+	animateText($textAnimationContainer, index, textCount)
+	
 
 });
