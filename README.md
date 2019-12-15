@@ -4,7 +4,3 @@ Slug example with localization:
 /en/home
 Slug example with no localization
 /home
-
-
-user: antonio@adias.it
-pwd: password1846
