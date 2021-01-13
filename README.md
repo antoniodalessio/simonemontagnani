@@ -5,8 +5,4 @@ Slug example with localization:
 Slug example with no localization
 /home
 
-
-to watch: npm run watch	
-
-user: antonio@adias.it
-pwd: password1846
+to watch: npm run watch
