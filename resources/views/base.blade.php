@@ -12,7 +12,15 @@
 			<span class="icon-logo"></span>
 			<div class="main-gallery__text">
 				<p>frist<br>studio_</p>
-				<p>firenze</p>
+				<div class="text-animation">
+					<div class="text-animation__container">
+						<p>firenze</p>
+						<p>ricerca</p>
+						<p>immagina</p>
+						<p>progetta</p>
+						<p>racconta</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -278,7 +278,7 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 20px;
   position: fixed;
   z-index: 10;
   width: calc(100% - (30px * 2));
@@ -494,8 +494,10 @@ header .logo:hover {
 
 .container-viewport-centered__wrapper__left .text {
   color: #000;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 8px;
+  display: block;
 }
 
 .container-viewport-centered__wrapper__right {
@@ -519,6 +521,22 @@ header .logo:hover {
   line-height: 50px;
 }
 
+.text-animation {
+  height: 70px;
+  padding-bottom: 7px;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.text-animation__container {
+  position: relative;
+}
+
+.text-animation p {
+  vertical-align: top;
+  height: 70px;
+}
+
 @media only screen and (max-width: 1024px) {
   header {
     position: relative;
@@ -533,6 +551,8 @@ header .logo:hover {
     width: 90%;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
   .container-viewport-centered--scroll {
     padding-top: 0;
@@ -542,14 +562,32 @@ header .logo:hover {
   }
   .main-gallery {
     padding: 0 10px;
+    height: calc(100vh - 60px);
   }
   .main-gallery__container {
-    width: 100vw;
+    width: auto;
+    text-align: center;
+  }
+  .main-gallery__container .icon-logo {
+    margin-bottom: 40px;
+    display: block;
   }
   .main-gallery .text {
     right: 0;
     left: 0;
     position: relative;
+  }
+  .main-gallery__text {
+    width: auto;
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+  .main-gallery__text p {
+    font-size: 40px;
+  }
+  .main-gallery__text .text-animation {
+    height: 60px;
   }
   .main-gallery .logo {
     display: none;
@@ -558,8 +596,25 @@ header .logo:hover {
 
 .about-us .icon-rosa {
   position: absolute;
-  font-size: 50px;
-  right: 0;
+  font-size: 100px;
+  left: 160px;
+  top: 160px;
+}
+
+@media only screen and (max-height: 830px) {
+  .about-us .container-viewport-centered {
+    display: -webkit-box;
+  }
+  .about-us .container-viewport-centered__wrapper {
+    margin-top: 40px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .about-us .container-viewport-centered {
+    height: auto;
+    margin-top: 50px;
+  }
 }
 
 .about-us__content {
@@ -570,6 +625,10 @@ header .logo:hover {
   width: 70%;
   margin: 30px 0;
   height: 2px;
+}
+
+.about-us__content p {
+  line-height: 24px;
 }
 
 /* PORTFOLIO */
@@ -614,6 +673,7 @@ header .logo:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-bottom: 20px;
 }
 
 .project-header h1 {
@@ -621,7 +681,7 @@ header .logo:hover {
   font-size: 2em;
   text-transform: capitalize;
   margin-bottom: 10px;
-  color: black;
+  color: white;
 }
 
 .project-header h2 {
@@ -642,7 +702,8 @@ header .logo:hover {
   width: 80%;
   line-height: 1.2em;
   margin-bottom: 10px;
-  font-size: 0.8em;
+  font-size: 1.1em;
+  color: black;
 }
 
 @media only screen and (max-width: 600px) {
@@ -654,6 +715,19 @@ header .logo:hover {
     width: 100%;
     margin-right: 0;
     margin-bottom: calc(50vw - 46vw);
+  }
+  .project-header {
+    display: block;
+  }
+  .project-header__left {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .project-header__right {
+    width: 100%;
+  }
+  .project-header__content {
+    width: 100%;
   }
 }
 

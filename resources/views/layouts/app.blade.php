@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="/public/favicon.ico">
     <link rel="icon" href="/public/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="/public/favicon.ico">
+    <meta name="google-site-verification" content="fcyM1aEvQrGI0Us29GKgIQPNCbxoWoTi_UdFufWs69Y" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

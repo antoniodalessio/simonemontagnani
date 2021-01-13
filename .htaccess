@@ -3,6 +3,11 @@
         Options -MultiViews
     </IfModule>
 
+    <FilesMatch ".env|README.md|composer.json|composer.lock|package.json|package-lock.json|yarn.lock|webpack.mix.js">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
+
     RewriteEngine On
 
     RewriteCond %{REQUEST_FILENAME} !-d

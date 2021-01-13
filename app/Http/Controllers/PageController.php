@@ -84,7 +84,8 @@ class PageController extends Controller
                             ->whereHas('type', function($q) use ($projectType){
                                 $q->where('type_id', '=', $projectType->first()->id);
                             })
-                            ->get();
+                            ->get()
+                            ->sortBy('ord');
         }
 
 

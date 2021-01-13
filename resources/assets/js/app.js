@@ -7,7 +7,7 @@
 
 try {
     window.$ = window.jQuery = require('jquery');
-    var slick = require('slick-carousel');
+    //var slick = require('slick-carousel');
 } catch (e) {}
 
 
@@ -41,13 +41,6 @@ $(document).ready( () => {
 		$menu.removeClass("open");
 	});
 
-	// $('.slider').slick({
-	// 	slidesToShow: 1,
-	//   	slidesToScroll: 1,
-	//   	autoplay: true,
-	//   	autoplaySpeed: 2000,
-	// });
-
 	//add click event to menu items
 	$('.menu__container nav > ul li').each(function() {
 		if ($(this).find('.submenu').length > 0) {
@@ -74,13 +67,23 @@ $(document).ready( () => {
 		}
 	});
 
+	function animateText($textAnimationContainer, index, tot) {
+		$textAnimationContainer
+			.delay(1000)
+			.animate({
+				top: -70 * index
+			}, 300, function() {
+				animateText($textAnimationContainer, (index + 1 + tot) % tot, tot)
+			})
+			
+	}
 
-	$('.slider').mouseenter(function() {
-		$($(this).find('img')[0]).hide();
-	});
+	var $textAnimationContainer = $('.text-animation__container');
+	var textCount = $textAnimationContainer.find('p').length;
+	var index = 0;
 
-	$('.slider').mouseleave(function() {
-		$($(this).find('img')[0]).show();
-	});
+	
+	animateText($textAnimationContainer, index, textCount)
+	
 
 });

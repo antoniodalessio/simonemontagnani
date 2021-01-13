@@ -74,9 +74,11 @@ class ProjectsController extends Controller
         return Admin::grid(Projects::class, function (Grid $grid) {
 
             $grid->model()->where('type_id', '=', 2);
+            $grid->model()->orderBy('ord');
 
             $grid->id('ID')->sortable();
             $grid->name();
+            $grid->ord()->editable();
             $grid->column('active')->display(function($val) {
                 return $val == 1 ? "<span style='color: green'>attiva</span>" : "<span style='color: red;'>non attiva</span>";
             });
@@ -122,6 +124,8 @@ class ProjectsController extends Controller
                 ->options($templates->pluck('name', 'id'))
                 ->rules('required')
                 ->default('2');
+
+            $form->number('ord');
 
             $form->divide();
 

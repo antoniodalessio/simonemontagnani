@@ -150,8 +150,10 @@ $marigin-header: 30px;
       }
       .text {
         color: #000;
-        font-size: 12px;
-        font-weight: 700;
+        font-size: 16px;
+        font-weight: 300;
+        margin-bottom: 8px;
+        display: block;
       }
     }
     &__right {
@@ -175,6 +177,20 @@ $marigin-header: 30px;
 
 }
 
+.text-animation{
+  height: 70px;
+  padding-bottom: 7px;
+  overflow: hidden;
+  vertical-align: top;
+  &__container {
+    position: relative;
+  }
+  p {
+    vertical-align: top;
+    height: 70px;
+  }
+}
+
 
 @media only screen and (max-width: 1024px) {
   
@@ -190,6 +206,8 @@ $marigin-header: 30px;
     &__wrapper {
       width: 90%;
       flex-wrap: wrap;
+      margin-top: 30px;
+      margin-bottom: 30px;
     }
 
     &--scroll {
@@ -203,13 +221,32 @@ $marigin-header: 30px;
 
   .main-gallery {
     padding: 0 10px;
+    height: calc(100vh - 60px);
     &__container {
-      width: 100vw;
+      width: auto;
+      text-align: center;
+      .icon-logo {
+        margin-bottom: 40px;
+        display: block;
+      }
     }
     .text {
       right: 0;
       left: 0;
       position: relative;
+    }
+    &__text {
+      width: auto;
+      //top: 15px;
+      position: relative;
+      left: 0;
+      top: 0;
+      p {
+        font-size: 40px;
+      }
+      .text-animation {
+        height: 60px;
+      }
     }
     .logo {
       display: none;
